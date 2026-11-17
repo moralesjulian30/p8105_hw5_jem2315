@@ -40,7 +40,7 @@ birthday |>
   geom_point()
 ```
 
-The plot above describes the relationship between the size of a group of randomly selected individuals and the probability that there are at least  2 people within that group that will share a birthday. The plot was built using a function that sampled n between 1 and 365 days for a group of x size, and returns whether there are duplicate values or not, then simulating this function over 10000 times for group sizes between 2 and 50 individuals. The resulting plot shows a sigmoid (s-shaped) curve where as group size increases, the probability of 2 or more people having the same birthday increases and levels off at the high end.
+The plot above describes the relationship between the size of a group of randomly selected individuals and the probability that there are at least 2 people within that group that will share a birthday. The plot was built using a function that sampled n between 1 and 365 days for a group of x size, and returns whether there are duplicate values or not, then simulating this function over 10000 times for group sizes between 2 and 50 individuals. The resulting plot shows a sigmoid (s-shaped) curve where as group size increases, the probability of 2 or more people having the same birthday increases and levels off at the high end.
 
 ## Problem 2
 
@@ -155,3 +155,6 @@ sim_plot2 = bind_rows(sim_0, sim_1_6) |>
 sim_plot2
 ```
 
+In the `sim_all` plot above, power and effect size are plotted to observe the relationship between both statistical measures. Based on the graph, as effect size increases, the power increases. According to this plot, power approaches 100% when effect size is 4 and is at 100% at 6.
+
+The `sim_plot2` graph compares the average estimated population mean across all simulations with the average estimated mean where the null hypothesis was rejected. The average estimate across all simulations appears approximately equal to the true population mean. However, among simulations where the null hypothesis was rejected, the average estimate differs from the true population mean at smaller effect sizes. As the true population mean increases, the difference decreases until converging around a mean of 4. This occurs because restricting to cases where the null is rejected (statistically significant) disproportionately keeps samples with estimated effects farther from zero, which overestimates the true effect. As seen with the previous `sim_all` graph, as effect size increases, statistical power increases, so when the effect size increases for samples where null is rejected, it approximates the true mean much closer.
